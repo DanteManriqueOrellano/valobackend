@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Res, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { generateRouterForValorizacion, IElemento } from 'src/toolsExcel/toolsForValorizacion';
-import { Response } from 'express';
+import { Response, Express } from 'express';
 import { generateFoldersInFolderProjects, generateTemplateFromIndex, compressIntereFolder } from 'src/toolsBox/toolBoxGenerics';
 import { diskStorage } from 'multer';
 import * as exceljs from 'exceljs';
@@ -84,6 +84,11 @@ return "correcto"
     console.log(file)
     return file;
   }
+  
+
+
+
+
   @Get('lasrutas')
   async lasrutas(){
     const openWorkbook = new exceljs.Workbook();
