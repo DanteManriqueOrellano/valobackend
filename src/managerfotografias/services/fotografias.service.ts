@@ -2,11 +2,13 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateCatDto } from '../dtos/create.cat.DTO';
-import { Cat, CatDocument } from '../schema/fotografias.schema';
+import { Cat,  CatDocument } from '../schema/fotografias.schema';
 
 @Injectable()
-export class FotografiasService {
+export class FotografiasService{
+    
     constructor(@InjectModel(Cat.name) private catModule:Model<CatDocument> ){ }
+   
 
     async create(createcatdto:CreateCatDto){
         const catCreated = await this.catModule.create(createcatdto)

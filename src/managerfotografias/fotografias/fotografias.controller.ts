@@ -1,14 +1,18 @@
 import { BadRequestException, Body, Controller, Delete, Get, Param, Post, Put, Res, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { CreateCatDto } from '../dtos/create.cat.DTO';
+import { CreateCatDto  } from '../dtos/create.cat.DTO';
 import { FotografiasService } from '../services/fotografias.service';
 import { diskStorage } from 'multer';
 import { Cat } from '../schema/fotografias.schema';
 import { Response } from 'express';
 
 @Controller('fotografias')
-export class FotografiasController {
-    constructor(private fotografiasService:FotografiasService){}
+export class FotografiasController{
+    
+    constructor(
+        private fotografiasService:FotografiasService,
+        
+        ){}
     
     @Get('cats')
     async getPhotos(): Promise<any> 
@@ -79,16 +83,12 @@ export class FotografiasController {
         const photo = await Photo.findById(id);
         return res.json(photo);*/
     }
+    
     @Delete(':id')
     async deletePhoto(@Param() id:string): Promise<CreateCatDto>
     {
         return this.fotografiasService.deleteCat(id)
-        /*const { id } = req.params;
-        const photo = await Photo.findByIdAndRemove(id) as IPhoto;
-        if (photo) {
-            await fs.unlink(path.resolve(photo.imagePath));
-        }
-        return res.json({ message: 'Photo Deleted' });*/
+        
     }
     @Put(':id')
     @UseInterceptors(

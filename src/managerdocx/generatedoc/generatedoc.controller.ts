@@ -1,6 +1,4 @@
 import { Controller, Post } from '@nestjs/common';
-import createReport from 'docx-templates';
-import * as fs from 'fs'
 import { PanelFotograficoService } from '../services/basedocx.service';
 
 export interface avatar{

@@ -28,7 +28,7 @@ async function bootstrap() {
    */
   app.useStaticAssets(join(__dirname, '..', 'public'));
   app.useGlobalPipes(new ValidationPipe())
-  await app.listen(3033,'192.168.1.86',()=>{//ip de la maquiandonde esta el backend aplicativo, se usa ifconfig
+  await app.listen(3033,'192.168.1.86',()=>{//ip de la maquiandonde esta el backend aplicativo, se usa ipconfig
     console.log(`on port: ${3033}`)
   });
 }

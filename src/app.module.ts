@@ -6,6 +6,10 @@ import { ManagerdocxModule } from './managerdocx/managerdocx.module';
 import { ManagerfotografiasModule } from './managerfotografias/managerfotografias.module';
 import { MongooseModule } from '@nestjs/mongoose';
 
+import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
+
+
 
 
 @Module({
@@ -14,6 +18,12 @@ import { MongooseModule } from '@nestjs/mongoose';
     ManagerdocxModule,
     ManagerfotografiasModule,
     MongooseModule.forRoot('mongodb://localhost/documentos'),
+    
+    UsersModule,
+    
+    AuthModule,
+    
+    
       
   ],
   controllers: [AppController],
